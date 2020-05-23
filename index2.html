@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+
+    class List {
+      constructor(a, b) {
+        this.a = a;
+        this.b = b;
+      }
+      method() {
+        console.log(this.a * this.b);
+      }
+    }
+    const list = new List(10, 40)
+    console.log(list);
+    list.method();
+    //---------------------------------------------------------
+    class Veg {
+      constructor(name, color) {
+        this.nam = name;
+        this.colo = color;
+      }
+      show() {
+        console.log(`${this.nam}の色は${this.colo}です`)
+      }
+    }
+    const tomato = new Veg('トマト', '赤')
+    console.log(tomato);
+    tomato.show();
+
+    class Fruits extends Veg {
+      constructor(name, color, fruit, taste) {
+        super(name, color);
+        this.fruit = fruit;
+        this.taste = taste;
+      }
+      teachMe() {
+        console.log((`${this.fruit}は${this.taste}です`));
+        console.log((`${this.nam}の${this.colo}はきれいです`));
+      }
+    }
+
+    const market = new Fruits('トマト', '赤', 'ぶどう', '甘い')
+
+    market.teachMe(); //ぶどうは甘いです/トマトの赤はきれいです
+    market.show(); //トマトの色は赤です
+
+    //親クラスのプロパティを引き継ぐときはconstructorを省略できる
+    class Ramen extends Veg {
+      review() {
+        console.log(`${this.nam}の色は${this.colo}!`)
+      }
+    }
+    const ramen = new Ramen('はやし', '茶色');
+    ramen.review(); //はやしの色は茶色！
+
+
+
+    //---------------------------------------------------------
+
+
+
+    /////////////////////////////////////////////////////////////
+    //
+    //   ①クラス名は、インスタンス名と被らないようにするため大文字スタートにする
+    //   　インスタンス名は小文字スタート
+    //     class Thing{}
+    //     const thing = new Thing();
+    //   ②メソッド定義時、「メソッド:」のように書くとエラーになる  
+    //
+    //　　　　例　　メソッド: () => {}
+    //   　　　　　メソッド: function(){}
+    //
+    /////////////////////////////////////////////////////////////
+  </script>
+</body>
+
+</html>
